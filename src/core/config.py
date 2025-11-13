@@ -1,3 +1,4 @@
+from datetime import timedelta
 from typing import Literal
 from functools import lru_cache
 from pydantic import Field, SecretStr
@@ -33,9 +34,15 @@ class DBSettings(BaseSettings):
         case_sensitive=False,
     )
 
+class SecureSettings(BaseSettings):
+    SECRET_KEY: SecretStr = Field(..., alias="SECRET_KEY")
+    HASH_ALGORITHM: str = Field(default="HS256", alias="HASH_ALGORITHM")
+    TOKEN_LIFETIME_DAYS: int = Field(default=7, alias="TOKEN_LIFETIME_DAYS")
+
 class Settings(BaseSettings):
     ENVIRONMENT: Environment = "development"
     DB: DBSettings = Field(default_factory=DBSettings)
+    SECURE: SecureSettings = Field(default_factory=SecureSettings)
 
     class Config:
         env_file = ".env"
