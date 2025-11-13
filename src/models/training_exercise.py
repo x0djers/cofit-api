@@ -1,7 +1,7 @@
 from sqlalchemy.types import Numeric
 from sqlalchemy import Column, Integer, ForeignKey, UniqueConstraint, Index
 
-from src.core.db.base import Base
+from src.db.base import Base
 
 class TrainingExercise(Base):
     __tablename__ = "training_exercises"

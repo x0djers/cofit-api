@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, Boolean
 
-from src.core.db.base import Base
+from src.db.base import Base
 
 class Exercise(Base):
     __tablename__ = "exercises"

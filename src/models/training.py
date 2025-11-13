@@ -1,7 +1,7 @@
 from sqlalchemy.types import TIMESTAMP
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Index
 
-from src.core.db.base import Base
+from src.db.base import Base
 
 class Training(Base):
     __tablename__ = "trainings"
