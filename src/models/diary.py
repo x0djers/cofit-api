@@ -13,7 +13,7 @@ class Diary(Base):
                         ForeignKey("users.id"),
                         nullable=False,
                         unique=True)
-    client_id = Column(Integer,
-                       ForeignKey("users.id"),
-                       nullable=False,
-                       unique=True)
+    client_id: int | None = Column(Integer,
+                                   ForeignKey("users.id"),
+                                   nullable=True,
+                                   unique=True)

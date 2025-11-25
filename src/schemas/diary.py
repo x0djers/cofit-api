@@ -6,10 +6,13 @@ class DiaryBase(BaseModel):
 class DiaryCreate(DiaryBase):
     trainer_id: int
 
+class DiaryJoin(BaseModel):
+    diary_id: int
+
 class DiaryOut(DiaryBase):
     id: int
     trainer_id: int
-    client_id: int
+    client_id: int | None = None
 
     class Config:
         from_attributes = True
