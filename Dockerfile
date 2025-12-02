@@ -1,7 +1,7 @@
 FROM python:3.13-slim
 
-ADD https://astral.sh/uv/install.sh /install-uv.sh
-RUN sh /install-uv.sh && rm /install-uv.sh
+RUN pip install uv
+
 ENV PATH="/root/.cargo/bin:$PATH"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
